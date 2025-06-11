@@ -1,0 +1,46 @@
+{
+  "name": "@martin-hillford/sefer-chat",
+  "version": "1.0.3",
+  "license": "MIT",
+  "author": {
+    "name": "Martin Hillford",
+    "email": "171671237+martin-hillford@users.noreply.github.com"
+  },
+  "files": [
+    "readme.md",
+    "license",
+    "lib/"
+  ],
+  "main": "lib/main.js",
+  "module": "lib/main.mjs",
+  "types": "lib/main.d.ts",
+  "scripts": {
+    "build": "tsup src/main.ts --format cjs,esm --dts",
+    "start": "vite"
+  },
+  "description": "A react library for using the chat system within in the Sefer framework",
+  "dependencies": {
+    "@microsoft/signalr": "^8.0.7",
+    "@vitejs/plugin-react-swc": "^3.10.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.2",
+    "sefer-fetch": "npm:@martin-hillford/sefer-fetch@1.0.3",
+    "styled-components": "^6.1.18"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.28.0",
+    "@types/node": "^22.10.1",
+    "@types/react": "^19.1.7",
+    "@types/react-dom": "^19.1.6",
+    "@types/styled-components": "^5.1.34",
+    "eslint": "^9.28.0",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.34.0",
+    "vite": "^6.3.5",
+    "vite-plugin-svgr": "^4.3.0",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.2.3",
+    "tsup": "^8.4.0"
+  }
+}

@@ -1,0 +1,41 @@
+:root {
+	--app-height: 100%;
+}
+
+body,
+html {
+	height: 100%;
+	background: white;
+	overscroll-behavior-y: none;
+	font-size: 16px;
+
+	@media (min-width: 780px) {
+		font-size: 16px;
+	}
+}
+
+body {
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background: white;
+	font-size: 16px;
+	hyphens: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+a {
+	color: rgb(61, 61, 61);
+	font-weight: bold;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}

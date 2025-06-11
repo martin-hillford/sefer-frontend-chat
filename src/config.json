@@ -1,0 +1,9 @@
+{
+    "user": {
+        "role": "Student",
+        "id": 9753,
+        "name": "Tester"
+    },
+    "token": "eyJTZXNzaW9uSWQiOiJlNTk4NTI0OC0zNTFhLTQ3ZWUtYmM1ZS05ZWE5ZDI3MmUzYjciLCJVc2VySWQiOjk3NTMsIlVzZXJSb2xlIjoiU3R1ZGVudCIsIkV4cGlyYXRpb25EYXRlVGltZSI6IjIwMjUtMDQtMDdUMTY6Mjk6MjcuOTYzNDM1OVoifQ==.AKIzrXV3OGOv1jDSXISWhAF/HwMhl7ZLscwIocEMKXzRX4wcBBTSJUKUw4c+7Q/t",
+    "api": "http://localhost:5000"
+}
