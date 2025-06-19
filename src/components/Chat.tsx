@@ -15,6 +15,12 @@ export default (props : ChatProps) => {
     if (context && fetchContext?.user) connect(fetchContext, context.user);
   }, [context, fetchContext]);
 
+  // Add some additional logging to help with debugging
+  if (!context) console.log('context is null or undefined');
+  else if (!fetchContext) console.log('fetchContext is null or undefined');
+  else if (!fetchContext?.user) console.log('fetchContext user is null or undefined');
+
+  // Check and return if no context is available
   if (!context || !fetchContext?.user) return null;
 
   return (
