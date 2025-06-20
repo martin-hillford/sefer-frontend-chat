@@ -3,9 +3,9 @@ import User from 'types/User';
 
 interface ChatProps {
   minWidthForComposedView : number
-  language: 'nl'
+  language: 'nl' | 'en'
   user: User
-  culture: 'nl-NL'
+  culture: 'nl-NL' | 'en-US' | 'en-GB' | 'en-CA' | 'en-AU',
   navigate: (href : string) => void
   initialChannelId? : number | null | undefined
   initialMessageId? : number | null | undefined
