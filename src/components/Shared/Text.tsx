@@ -11,48 +11,59 @@ export interface TextProps {
   justify? : boolean
 }
 
+
 const Text: FC<PropsWithChildren<TextProps>> = (props) => {
-  const { variant, children } = props;
+  const { variant, children, color, justify, italic, margin, center, bold } = props;
+  const style = { $color: color, $justify: justify, $bold: bold, $italic: italic, $margin: margin, $center: center };
   switch (variant) {
     case 'h1':
-      return <H1 {...props}>{children}</H1>;
+      return <H1 {...style}>{children}</H1>;
     default:
-      return <P {...props}>{children}</P>;
+      return <P {...style}>{children}</P>;
   }
 };
 
-const H1 = styled.h1<TextProps>`
+
+interface StyleProps {
+  $color?: 'default' | 'primary' | 'secondary' | 'tertiary' | 'error',
+  $bold?: boolean
+  $italic?: boolean
+  $center?: boolean
+  $margin?: number
+  $justify? : boolean
+}
+
+const H1 = styled.h1<StyleProps>`
   font-weight: 100;
   text-align: center;
   word-break: break-word;
   hyphens: auto;
-  color: ${p => p.theme.colors[p.color ?? 'default']};
+  color: ${p => p.theme.colors[p.$color ?? 'default']};
   font-size: 3rem;
   margin: 65px 0;
 `;
 
-const getTextAlign = (style : TextProps) => {
-  const { center, justify } = style;
-  if (center === true) return 'center';
-  if (justify === true) return 'justify';
+const getTextAlign = (style : StyleProps) => {
+  const { $center, $justify } = style;
+  if ($center === true) return 'center';
+  if ($justify === true) return 'justify';
   return 'left';
 };
 
-const P = styled.p<TextProps>`
-  color: ${p => p.theme.colors[p.color ?? 'default']};
+const P = styled.p<StyleProps>`
+  color: ${p => p.theme.colors[p.$color ?? 'default']};
   text-align: ${p => getTextAlign(p)};
   font-size: 1rem;
   line-height: 1.5rem;
   hyphens: auto;
 
-  ${p => (p.margin !== undefined ? `margin: ${p.margin}px` : '')};
+  ${p => (p.$margin !== undefined ? `margin: ${p.$margin}px` : '')};
 
-  font-weight: ${p => (p.bold ? 'bold' : 300)};
-  font-style: ${p => (p.italic ? 'italic' : 'normal')};
-  letter-spacing: 0.1px;
+  font-weight: ${p => (p.$bold ? 'bold' : 300)};
+  font-style: ${p => (p.$italic ? 'italic' : 'normal')};
 
   a {
-    color: ${p => p.theme.colors[p.color ?? 'default']} !important;
+    color: ${p => p.theme.colors[p.$color ?? 'default']} !important;
     font-weight: bold;
   }
 `;

@@ -23,7 +23,7 @@ export default (props : Props) => {
   const channelId = useInitialMessage(initialMessageId, initialChannelId);
   const { channels, onReloadChannels } = useFetchChannels();
 
-  if (!channels || channelId === null) return <Spinner size="normal" color="primary" paddingTop={120} center />;
+  if (!channels || channelId === null) return <Spinner $size="normal" $color="primary" $paddingTop={120} $center />;
   if (channels.length === 0) return <NoChannels />;
 
   return (

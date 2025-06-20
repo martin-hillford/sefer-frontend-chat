@@ -5,7 +5,7 @@ import { Container } from './MessageView.styled';
 export default () => (
   <Container>
     <Center>
-      <Spinner paddingTop={60} color="primary" size="normal" center />
+      <Spinner $paddingTop={60} $color="primary" $size="normal" $center />
     </Center>
   </Container>
 );

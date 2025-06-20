@@ -23,8 +23,8 @@ export default (props : Props) => {
   }, [show]);
 
   return createPortal(
-    <Container show={show} transition={transition}>
-      <Message type={type}>
+    <Container $show={show} $transition={transition}>
+      <Message $type={type}>
         <Center>
           {message}
         </Center>
@@ -35,11 +35,11 @@ export default (props : Props) => {
   );
 };
 
-const Container = styled.div<{show:boolean, transition: boolean}>`
+const Container = styled.div<{$show:boolean, $transition: boolean}>`
     box-sizing: border-box;
     position: fixed;
-    top: calc(${p => (p.transition ? 0 : -80)}px + env(safe-area-inset-top));
-    display: ${p => (p.show ? 'flex' : 'none')};
+    top: calc(${p => (p.$transition ? 0 : -80)}px + env(safe-area-inset-top));
+    display: ${p => (p.$show ? 'flex' : 'none')};
     width: 100%;
     background-color: rgba(255,255,255, 0.1);
     z-index: 100;
@@ -47,12 +47,12 @@ const Container = styled.div<{show:boolean, transition: boolean}>`
     justify-content: center;
 `;
 
-const Message = styled.div<{type: 'success' | 'error'}>`
+const Message = styled.div<{$type: 'success' | 'error'}>`
     margin:10px;
     width: calc(100% - 20px);
     max-width: ${p => p.theme.screens.large - 40}px;
-    background-color: ${p => getBackgroundColor(p.type)};
-    color: ${p => getColor(p.type)};
+    background-color: ${p => getBackgroundColor(p.$type)};
+    color: ${p => getColor(p.$type)};
     font-size: 1rem;
     border-radius: 6px;
     display: flex;

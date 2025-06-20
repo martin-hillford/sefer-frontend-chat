@@ -18,18 +18,18 @@ export default (props: TextInputProps) => {
         placeholder={placeholder}
         value={value ?? ''}
         type="text"
-        error={hasError === true}
+        $error={hasError === true}
         name={property}
       />
     </div>
   );
 };
 
-const Input = styled.input<{error: boolean}>`
+const Input = styled.input<{$error: boolean}>`
   width: 100%;
   height: 40px;
-  border: 1px solid ${p => (p.error ? p.theme.colors.error : p.theme.colors.tertiary)};
-  color: ${p => (p.error ? p.theme.colors.error : p.theme.colors.default)};
+  border: 1px solid ${p => (p.$error ? p.theme.colors.error : p.theme.colors.tertiary)};
+  color: ${p => (p.$error ? p.theme.colors.error : p.theme.colors.default)};
   background-color: ${p => p.theme.colors.defaultInverse};
   box-sizing: border-box;
   border-radius: 8px;

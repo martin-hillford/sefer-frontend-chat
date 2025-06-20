@@ -6,7 +6,7 @@ import { isEmpty } from 'util/isEmpty';
 
 const validate = (channel: GroupChannel, channels: Channel[]) => {
   if (isEmpty(channel?.name) || channel?.name.length < 3) return { valid: false, msg: 'invalid-name' };
-  const existing = channels.filter(c => c.name.toLowerCase().trim() === channel.name.toLowerCase().trim());
+  const existing = channels.filter(c => c.name?.toLowerCase()?.trim() === channel.name.toLowerCase().trim());
   if (existing.length === 0) return { valid: true, msg: undefined };
   if (existing.length > 1) return { valid: false, msg: 'name-existing' };
   if (existing[0].id === channel.id) return { valid: true, msg: undefined };

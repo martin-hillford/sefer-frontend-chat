@@ -83,10 +83,10 @@ export default (props : Props) => {
   };
 
   return (
-    <Container height={height}>
+    <Container $height={height}>
       <QuotedMessage quotedMessage={quotedMessage} stopQuoting={stopQuoting} />
-      <Border height={texAreaHeight}>
-        <TextAreaContainer height={texAreaHeight}>
+      <Border $height={texAreaHeight}>
+        <TextAreaContainer $height={texAreaHeight}>
           <TextArea
             onChange={setResponse}
             value={response}
@@ -102,8 +102,8 @@ export default (props : Props) => {
   );
 };
 
-const Container = styled.div<{height : number}>`
-  height:${p => p.height}px;
+const Container = styled.div<{$height : number}>`
+  height:${p => p.$height}px;
 `;
 
 const ButtonGroup = styled.div`
@@ -115,17 +115,17 @@ const ButtonGroup = styled.div`
   height: 100%;
 `;
 
-const TextAreaContainer = styled.div<{height : number}>`
+const TextAreaContainer = styled.div<{$height : number}>`
   flex : 1 1 auto;
 
   textarea {
     margin:0;
-    height:${p => p.height - padding * 2}px;
+    height:${p => p.$height - padding * 2}px;
   }
 `;
 
-const Border = styled.div<{height : number}>`
-  height:${p => p.height}px;
+const Border = styled.div<{$height : number}>`
+  height:${p => p.$height}px;
   display: flex;
   flex-direction: row;
   padding:${padding}px;

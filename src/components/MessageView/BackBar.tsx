@@ -26,7 +26,7 @@ export default (props: Props) => {
       <Div onClick={back}><Left color={theme.colors.primary} /></Div>
       <Div onClick={back}>
         {channel.name}
-        <Online show={online} />
+        <Online $show={online} />
       </Div>
       <Spacer />
       {showChannelTools && <ChannelTools onShowChannelTools={onShowChannelTools} channel={channel} />}

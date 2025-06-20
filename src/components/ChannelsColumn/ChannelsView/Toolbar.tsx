@@ -8,14 +8,14 @@ export default (props : { children: ReactNode, showBackToApp : boolean }) => {
   const { viewMode } = useViewContext();
   const { children, showBackToApp } = props;
   return (
-    <Tools showBackToDashboard={showBackToApp}>
+    <Tools>
       <BackToApp show={showBackToApp && viewMode === ViewMode.Channel} />
       <Div>{children}</Div>
     </Tools>
   );
 };
 
-const Tools = styled.div<{showBackToDashboard:boolean}>`
+const Tools = styled.div`
     position: sticky;
     top:  0;
     z-index: 10;

@@ -42,23 +42,23 @@ export default (props : Props) => {
   const other = others.length === 1 ? others[0] : null;
 
   return (
-    <Container disabled={disabled} onClick={() => onSelect(channel)} selected={selected}>
+    <Container $disabled={disabled} onClick={() => onSelect(channel)} $selected={selected}>
       <div>
         {!other && <Pos><UserGroup color={color} height={26} /></Pos>}
         {other && <Avatar grayscale={other.userActive === false} size={28} avatarUrl={other.userAvatarUrl} />}
       </div>
       <div>{channel.name}</div>
-      <Online show={online && !hideOnline} />
+      <Online $show={online && !hideOnline} />
       <Spacer />
-      <Badge selected={selected} show={unreadCount !== 0}>{unreadCount}</Badge>
+      <Badge $selected={selected} $show={unreadCount !== 0}>{unreadCount}</Badge>
     </Container>
   );
 };
 
-const Badge = styled.div<{show : boolean, selected : boolean}>`
+const Badge = styled.div<{$show : boolean, $selected : boolean}>`
   flex: 0 0 24px;
-  background-color: ${p => (p.selected ? p.theme.colors.primary : p.theme.colors.tertiary)};
-  color: ${p => (p.selected ? p.theme.colors.primaryInverse : p.theme.colors.tertiaryInverse)};
+  background-color: ${p => (p.$selected ? p.theme.colors.primary : p.theme.colors.tertiary)};
+  color: ${p => (p.$selected ? p.theme.colors.primaryInverse : p.theme.colors.tertiaryInverse)};
   border-radius: 50%;
   box-sizing: border-box;
   margin-top:2px;
@@ -69,7 +69,7 @@ const Badge = styled.div<{show : boolean, selected : boolean}>`
   justify-content: center;
   font-size: 0.75rem;
   font-weight: bold;
-  display: ${p => (p.show ? 'flex' : 'none')};
+  display: ${p => (p.$show ? 'flex' : 'none')};
   margin-right: 8px;
 `;
 

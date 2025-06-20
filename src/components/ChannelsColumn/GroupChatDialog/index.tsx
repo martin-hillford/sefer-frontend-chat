@@ -71,7 +71,7 @@ export default () => {
             onSelect={onSelect}
           />
         ))}
-        <Separator show={showSeparator} />
+        <Separator $show={showSeparator} />
         {students.inactive.map(student => (
           <StudentSelector
             selected={groupChannel.students.includes(student.studentId)}
@@ -81,7 +81,7 @@ export default () => {
             onSelect={onSelect}
           />
         ))}
-        <Separator show />
+        <Separator $show />
         <ActionBar onDeleteClick={() => setShowDelete(true)} />
       </Container>
     </>

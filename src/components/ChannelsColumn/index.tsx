@@ -15,7 +15,7 @@ export default (props : Props) => {
   const { maxWidthForChannelView = 400, } = useChatContext();
 
   return (
-    <ChannelContainer viewMode={viewMode} maxChannelWidth={maxWidthForChannelView}>
+    <ChannelContainer $viewMode={viewMode} $maxChannelWidth={maxWidthForChannelView}>
       <Switch {...props} />
     </ChannelContainer>
   );
@@ -43,10 +43,10 @@ const Switch = (props: Props) => {
   return null;
 };
 
-const ChannelContainer = styled.div<{viewMode: ViewMode, maxChannelWidth: number}>`
-  display: ${p => (p.viewMode !== ViewMode.Messages ? 'initial' : 'none')};
-  width: ${p => (p.viewMode === ViewMode.Channel ? '100%' : '100vw')};
-  max-width: ${p => (p.viewMode === ViewMode.Channel ? '100%' : `${p.maxChannelWidth}px`)};
+const ChannelContainer = styled.div<{$viewMode: ViewMode, $maxChannelWidth: number}>`
+  display: ${p => (p.$viewMode !== ViewMode.Messages ? 'initial' : 'none')};
+  width: ${p => (p.$viewMode === ViewMode.Channel ? '100%' : '100vw')};
+  max-width: ${p => (p.$viewMode === ViewMode.Channel ? '100%' : `${p.$maxChannelWidth}px`)};
   min-width: 200px;
   overflow-y: auto;
   border-right: 1px solid ${p => p.theme.colors.defaultSupport};

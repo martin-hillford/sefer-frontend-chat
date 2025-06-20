@@ -6,7 +6,7 @@ import Spacer from '../../Shared/Spacer';
 export default (props: { receiver : Receiver }) => {
   const { receiver } = props;
   return (
-    <Container selected={false} disabled={false}>
+    <Container $selected={false} $disabled={false}>
       <div><Avatar grayscale={!receiver.userActive} size={28} avatarUrl={receiver.userAvatarUrl} /></div>
       <div>{receiver.userName}</div>
       <Spacer />

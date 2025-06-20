@@ -27,7 +27,7 @@ export default (props : ButtonProps) => {
     <ButtonBase
       onClick={() => onButtonClick()}
       disabled={disabled}
-      color={color}
+      $color={color}
       type="button"
     >
       <Content>{label}{icon}</Content>
@@ -51,10 +51,10 @@ const Content = styled.div`
   }
 `;
 
-const ButtonBase = styled.button<{ disabled: boolean, color: 'primary' | 'secondary' | 'tertiary' | 'error' }>`
+const ButtonBase = styled.button<{ disabled: boolean, $color: 'primary' | 'secondary' | 'tertiary' | 'error' }>`
 
-  background-color: ${p => p.theme.colors[p.color]};
-  color: ${p => p.theme.colors[`${p.color}Inverse`]};
+  background-color: ${p => p.theme.colors[p.$color]};
+  color: ${p => p.theme.colors[`${p.$color}Inverse`]};
   height: 40px;
   padding: 0 20px;
   border: 0;

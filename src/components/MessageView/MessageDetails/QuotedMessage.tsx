@@ -14,20 +14,15 @@ export default (props : MessageDetailsProps) => {
     document.getElementById(`message_${message.quotedMessageId}`)?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  return <Quote onClick={() => onClick()} isSender={isSender}>{text}</Quote>;
+  return <Quote onClick={() => onClick()} $isSender={isSender}>{text}</Quote>;
 };
 
-const Quote = styled.blockquote<{isSender: boolean}>`
-  border-right: ${p => (p.isSender ? 2 : 0)}px solid ${p => p.theme.colors.default};
-  border-left: ${p => (p.isSender ? 0 : 2)}px solid ${p => p.theme.colors.default};
+const Quote = styled.blockquote<{$isSender: boolean}>`
+  border-right: ${p => (p.$isSender ? 2 : 0)}px solid ${p => p.theme.colors.default};
+  border-left: ${p => (p.$isSender ? 0 : 2)}px solid ${p => p.theme.colors.default};
   color: ${p => p.theme.colors.default};
   font-style: italic;
-  padding:4px;
-
-  padding-right: ${p => (p.isSender ? 12 : 0)}px;
-  padding-left: ${p => (p.isSender ? 0 : 12)}px;
+  padding: 4px ${p => (p.$isSender ? 12 : 0)}px 4px ${p => (p.$isSender ? 0 : 12)}px;
   cursor: pointer;
-
-  margin: 0;
-  margin-bottom: 14px;
+  margin: 0 0 14px;
 `;

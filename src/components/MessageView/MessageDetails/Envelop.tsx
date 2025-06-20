@@ -59,7 +59,7 @@ const Envelop : FC<PropsWithChildren<MessageDetailsProps>> = (props) => {
       onMouseLeave={() => setShowTools(false)}
       data-id={message.id}
       ref={ref}
-      isSender={isSender}
+      $isSender={isSender}
     >
       <Container
         id={`message_${message.id}`}
@@ -67,16 +67,16 @@ const Envelop : FC<PropsWithChildren<MessageDetailsProps>> = (props) => {
         onTouchStart={onMouseDown}
         onTouchEnd={() => onMouseUp()}
         onMouseUp={() => onMouseUp()}
-        isSender={isSender}
+        $isSender={isSender}
       >
-        <Content isSender={isSender}>
-          <Sender showName={selectedChannel.type === ChannelType.Private}>{message.senderName}</Sender>
+        <Content $isSender={isSender}>
+          <Sender $showName={selectedChannel.type === ChannelType.Private}>{message.senderName}</Sender>
           <QuotedMessage {...props} />
           {children}
           <MessageStatus {...props} markAsRead={markAsRead} />
         </Content>
       </Container>
-      <Tools show={showTools && canQuote}>
+      <Tools $show={showTools && canQuote}>
         {canCopy && <Copy onClick={onCopy} color={theme.colors.default} height={18} />}
         {canReply && <Reply onClick={quote} color={theme.colors.default} height={22} />}
         {canResend && <Send onClick={resend} color={theme.colors.default} height={22} />}
@@ -85,20 +85,20 @@ const Envelop : FC<PropsWithChildren<MessageDetailsProps>> = (props) => {
   );
 };
 
-const Content = styled.div<{isSender: boolean}>`
+const Content = styled.div<{$isSender: boolean}>`
   padding: 32px;
   hyphens: auto;
   word-wrap: break-word;
 `;
 
-const Placer = styled.div<{isSender: boolean}>`
+const Placer = styled.div<{$isSender: boolean}>`
   width: 100%;
   display: flex;
-  flex-direction: ${p => (p.isSender ? 'row-reverse' : 'row')};
+  flex-direction: ${p => (p.$isSender ? 'row-reverse' : 'row')};
 `;
 
-const Tools = styled.div<{show: boolean}>`
-  visibility: ${p => (p.show ? 'inherit' : 'hidden')};
+const Tools = styled.div<{$show: boolean}>`
+  visibility: ${p => (p.$show ? 'inherit' : 'hidden')};
   display: flex;
   align-items: flex-end;
   padding: 32px 12px;
@@ -106,8 +106,8 @@ const Tools = styled.div<{show: boolean}>`
   svg { cursor: pointer;}
 `;
 
-const Container = styled.div<{isSender: boolean}>`
-  background-color: ${p => (p.isSender ? p.theme.colors.defaultSupport : p.theme.colors.defaultInverse)};
+const Container = styled.div<{$isSender: boolean}>`
+  background-color: ${p => (p.$isSender ? p.theme.colors.defaultSupport : p.theme.colors.defaultInverse)};
   font-size: 0.875rem;
   line-height: 1.25rem;
   letter-spacing: 0.1px;
@@ -115,9 +115,9 @@ const Container = styled.div<{isSender: boolean}>`
   color: ${p => p.theme.colors.default};
   width: fit-content;
   display: flex;
-  flex-direction:  ${p => (p.isSender ? 'row-reverse' : 'row')};
+  flex-direction:  ${p => (p.$isSender ? 'row-reverse' : 'row')};
   
-  border: 1px solid ${p => (p.isSender ? p.theme.colors.defaultInverse : p.theme.colors.defaultSupport)};
+  border: 1px solid ${p => (p.$isSender ? p.theme.colors.defaultInverse : p.theme.colors.defaultSupport)};
   margin-top: 20px;
   border-radius: 12px;
 
@@ -133,8 +133,8 @@ const Container = styled.div<{isSender: boolean}>`
   user-select: none;
 `;
 
-const Sender = styled.div<{showName: boolean}>`
-  display: ${p => (p.showName ? 'block' : 'none')};  
+const Sender = styled.div<{$showName: boolean}>`
+  display: ${p => (p.$showName ? 'block' : 'none')};  
   font-size: 12px;
   font-weight: bold;
 `;

@@ -25,7 +25,7 @@ export default () => {
       </Toolbar>
       <Container>
         {receivers.map(r => <ReceiverView receiver={r} key={r.userId} />) }
-        <Separator show />
+        <Separator $show />
         <Close>
           <ButtonGroup>
             <Button color="primary" onClick={onCloseChannelTool} label={terms.close} />

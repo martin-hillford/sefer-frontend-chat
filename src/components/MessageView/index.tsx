@@ -90,8 +90,8 @@ export default (props : { searchTerm: string | undefined }) => {
         channel={selectedChannel}
         back={onBackToChannelOverview}
       />
-      <Messages ref={ref} inputHeight={inputHeight} top={top} className="messages">
-        {retrieving && moreMessageAvailable && <Spinner center color="primary" />}
+      <Messages ref={ref} $inputHeight={inputHeight} $top={top} className="messages">
+        {retrieving && moreMessageAvailable && <Spinner $center $color="primary" />}
         {details}
       </Messages>
       <MessageInput

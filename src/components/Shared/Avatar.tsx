@@ -15,11 +15,11 @@ export default (props : Props) => {
   const [error, setError] = useState(false);
   const theme = useTheme() as any;
 
-  // Determine which color to use as fill color
+  // Determine which color to use as fill-color
   const fillColor = grayscale ? 'tertiary' : color;
-  const fill = theme.colors[fillColor].trim().replace('#', '%23');
+  const fill = theme.colors[fillColor]?.trim().replace('#', '%23');
 
-  if (error || !avatarUrl) return <Shimmer size={size} />;
+  if (error || !avatarUrl) return <Shimmer $size={size} />;
   const url = isDataUrl ? avatarUrl : `${avatarUrl}&color=white&fill=${fill}`;
 
   const onImageClick = () => {
@@ -30,20 +30,20 @@ export default (props : Props) => {
     <Image
       onClick={onImageClick}
       onError={() => setError(true)}
-      grayscale={grayscale === true}
+      $grayscale={grayscale === true}
       height={size}
       width={size}
       src={url}
       alt=""
-      clickable={!!onClick}
+      $clickable={!!onClick}
     />
   );
 };
 
-const Image = styled.img<{grayscale: boolean, clickable : boolean}>`
+const Image = styled.img<{$grayscale: boolean, $clickable : boolean}>`
     border-radius: 50%;
-    ${p => (p.grayscale ? 'filter: grayscale(110%);' : '')};
-    ${p => (p.clickable ? 'cursor: pointer;' : '')};
+    ${p => (p.$grayscale ? 'filter: grayscale(110%);' : '')};
+    ${p => (p.$clickable ? 'cursor: pointer;' : '')};
 `;
 
 const shimmering = keyframes`
@@ -51,10 +51,10 @@ const shimmering = keyframes`
   100% { background-position: 1300px 0; }
 `;
 
-const Shimmer = styled.div<{size: number}>`
+const Shimmer = styled.div<{$size: number}>`
 
-  height: ${p => p.size}px;
-  width: ${p => p.size}px;
+  height: ${p => p.$size}px;
+  width: ${p => p.$size}px;
 
   border-radius: 50%;
   border: 1px solid ${p => p.theme.colors.defaultSupport};

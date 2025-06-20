@@ -32,7 +32,7 @@ export default (props : { group: GroupChannel, onCloseDialog : () => void }) => 
       <GroupDeleted show={code === 200} onClose={onCloseChannelTool} />
       <GroupDeletionFailed show={!!code && code !== 200} onClose={() => setCode(undefined)} />
       <div>{localization[language].groupDelete}</div>
-      <Separator show />
+      <Separator $show />
       <ButtonGroup>
         <Button
           color="primary"

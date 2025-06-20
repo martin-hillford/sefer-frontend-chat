@@ -73,7 +73,7 @@ const ResultDetail = (props : ResultDetailProps) => {
   return (
     <Hover>
       <ChannelDetails hideOnline disabled channel={channel} selected={selected} onSelect={() => onBrowseToMessage(result.messageId, channel)} />
-      <ContentPreview selected={selected} onClick={() => onBrowseToMessage(result.messageId, channel)}>
+      <ContentPreview $selected={selected} onClick={() => onBrowseToMessage(result.messageId, channel)}>
         <TextWithLinks mark={searchTerm} text={result.content} />
       </ContentPreview>
     </Hover>
@@ -91,14 +91,14 @@ const Hover = styled.div`
     padding-bottom: 8px;
 `;
 
-const ContentPreview = styled.div<{selected:boolean}>`
+const ContentPreview = styled.div<{$selected:boolean}>`
     padding-left: 8px;
     padding-right: 8px;
     font-size: 0.875rem;
     line-height: 1rem;
     max-height: 3rem;
     overflow: hidden;
-    color: ${p => (p.selected ? p.theme.colors.primary : p.theme.colors.default)} !important;
+    color: ${p => (p.$selected ? p.theme.colors.primary : p.theme.colors.default)} !important;
 `;
 
 const createLookup = (results: SearchResultData[]) => {

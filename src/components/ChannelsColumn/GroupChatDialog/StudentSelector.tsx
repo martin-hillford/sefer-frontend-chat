@@ -16,7 +16,7 @@ export default (props : Props) => {
   const { student, active, selected, onSelect } = props;
   const onChange = (value: boolean) => onSelect(student.studentId, value);
   return (
-    <Container selected={false} disabled={false}>
+    <Container $selected={false} $disabled={false}>
       <div><Avatar grayscale={!active} size={28} avatarUrl={student.studentAvatarUrl} /></div>
       <div>{student.studentName}</div>
       <Spacer />
