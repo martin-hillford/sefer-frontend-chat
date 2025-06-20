@@ -1,6 +1,6 @@
 {
   "name": "@martin-hillford/sefer-chat",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "MIT",
   "author": {
     "name": "Martin Hillford",
@@ -25,7 +25,7 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.2",
-    "sefer-fetch": "npm:@martin-hillford/sefer-fetch@1.0.3",
+    "sefer-fetch": "npm:@martin-hillford/sefer-fetch@^1.0.7",
     "styled-components": "^6.1.18"
   },
   "devDependencies": {

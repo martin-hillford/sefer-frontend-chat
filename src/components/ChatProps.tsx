@@ -1,3 +1,4 @@
+import { FetchContext } from "sefer-fetch";
 import User from 'types/User';
 
 interface ChatProps {
@@ -14,6 +15,7 @@ interface ChatProps {
   onFocusModeLeave? : Function
   maxWidthForChannelView?: number
   onChannelChanged? : (channelId: number | undefined) => any
+  fetchContext? : FetchContext
 }
 
 export default ChatProps;

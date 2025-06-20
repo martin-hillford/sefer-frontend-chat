@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
-import { useFetchContext } from 'sefer-fetch';
+import { FetchContextProvider, useFetchContext } from 'sefer-fetch';
 import ChatContext from 'context/ChatContext';
 import ChatPanel from 'components/ChatPanel';
 import { connect } from 'hooks/useChat';
@@ -9,7 +9,7 @@ import ChatProps from './ChatProps';
 export default (props : ChatProps) => {
   const { initialChannelId, showBackToDashboard, initialMessageId } = props;
   const context = { ...props };
-  const fetchContext = useFetchContext();
+  const fetchContext = useFetchContext() ?? props.fetchContext;
 
   useEffect(() => {
     if (context && fetchContext?.user) connect(fetchContext, context.user);
@@ -25,11 +25,13 @@ export default (props : ChatProps) => {
 
   return (
     <ChatContext.Provider value={context}>
-      <ChatPanel
-        initialChannelId={initialChannelId}
-        initialMessageId={initialMessageId}
-        showBackToDashboard={showBackToDashboard}
-      />
+      <FetchContextProvider context={fetchContext}>
+        <ChatPanel
+          initialChannelId={initialChannelId}
+          initialMessageId={initialMessageId}
+          showBackToDashboard={showBackToDashboard}
+        />
+      </FetchContextProvider>
     </ChatContext.Provider>
   );
 };
